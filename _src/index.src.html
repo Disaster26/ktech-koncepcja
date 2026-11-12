@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="[[lang]]">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>[[title]]</title>
+<meta name="description" content="[[desc]]">
+<meta name="theme-color" content="#1E2124">
+<link rel="alternate" hreflang="pl" href="https://disaster26.github.io/ktech-koncepcja/">
+<link rel="alternate" hreflang="de" href="https://disaster26.github.io/ktech-koncepcja/de/">
+<link rel="alternate" hreflang="en" href="https://disaster26.github.io/ktech-koncepcja/en/">
+<link rel="preload" href="[[p]]fonts/barlow-semi-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="[[p]]img/hero-1600.webp" as="image" imagesrcset="[[p]]img/hero-900.webp 900w, [[p]]img/hero-1600.webp 1600w, [[p]]img/hero-2400.webp 2400w" imagesizes="100vw">
+<link rel="stylesheet" href="[[p]]style.css">
+<link rel="icon" href="[[p]]img/favicon.svg" type="image/svg+xml">
+<style>
+[[BADGE_CSS]]
+</style>
+</head>
+<body>
+<a class="skip" href="#tresc">[[skip]]</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-or" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FDBF63"/><stop offset=".55" stop-color="#FF9B06"/></linearGradient>
+    <linearGradient id="g-st" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D9D9D9"/><stop offset=".5" stop-color="#C4C4C4"/><stop offset="1" stop-color="#8E8E8E"/></linearGradient>
+    <symbol id="logo" viewBox="0 0 300 92">
+      <text x="150" y="13" text-anchor="middle" class="lg-top">PRZEDSIĘBIORSTWO WIELOBRANŻOWE</text>
+      <polygon points="12,20 96,20 84,88 0,88" fill="url(#g-or)"/>
+      <polygon points="96,20 300,20 288,88 84,88" fill="url(#g-st)"/>
+      <text x="8" y="80" class="lg-txt">K-</text>
+      <text x="102" y="80" class="lg-txt" textLength="178" lengthAdjust="spacingAndGlyphs">TECH</text>
+    </symbol>
+    <symbol id="tel" viewBox="0 0 20 20"><path d="M5.2 2.5 7.8 2l1.5 4-2 1.4a10 10 0 0 0 5.3 5.3l1.4-2 4 1.5-.5 2.6c-.2.9-1 1.5-1.9 1.4A14.5 14.5 0 0 1 3.8 4.4c-.1-.9.5-1.7 1.4-1.9Z" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+
+<header class="top" id="top">
+  <div class="top-in">
+    <a class="logo" href="#start" aria-label="[[home]]"><svg viewBox="0 0 300 92" role="img"><title>K-TECH [[firmaword]]</title><use href="#logo"/></svg></a>
+    <nav class="nav" aria-label="Menu">
+      <a href="#oferta">[[m_oferta]]</a>
+      <a href="#maszyny">[[m_maszyny]]</a>
+      <a href="#wyroby">[[m_wyroby]]</a>
+      <a href="#wycena">[[m_wycena]]</a>
+      <a href="#kontakt">[[m_kontakt]]</a>
+    </nav>
+    <div class="jezyki" aria-label="Język / Sprache / Language">{{LANGS}}</div>
+    <a class="top-tel" href="tel:+48663005555" aria-label="[[call]]: 663 005 555"><svg><use href="#tel"/></svg><span>663 005 555</span></a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu-mob" aria-label="[[menu_open]]"><span></span><span></span><span></span></button>
+  </div>
+  <div class="menu-mob" id="menu-mob" hidden>
+    <nav aria-label="Menu">
+      <a href="#oferta">[[m_oferta]]</a>
+      <a href="#maszyny">[[m_maszyny]]</a>
+      <a href="#wyroby">[[m_wyroby]]</a>
+      <a href="#wycena">[[m_wycena]]</a>
+      <a href="#kontakt">[[m_kontakt]]</a>
+    </nav>
+    <div class="menu-mob-dol">
+      <div class="jezyki">{{LANGS}}</div>
+      <a class="menu-mob-tel" href="tel:+48663005555">663 005 555</a>
+    </div>
+  </div>
+</header>
+
+<main id="tresc">
+
+<section class="hero" id="start">
+  <img class="hero-img" src="[[p]]img/hero-1600.webp" srcset="[[p]]img/hero-900.webp 900w, [[p]]img/hero-1600.webp 1600w, [[p]]img/hero-2400.webp 2400w" sizes="100vw" alt="[[hero_alt]]" width="2400" height="1602" fetchpriority="high">
+  <div class="hero-in">
+    <h1>[[h1]]</h1>
+    <p class="lead">[[lead]]</p>
+    <a class="btn" href="#wycena" id="hero-cta"><span>[[cta]]</span></a>
+  </div>
+</section>
+<div class="szew" aria-hidden="true"></div>
+
+<section class="sekcja" id="oferta">
+  <div class="wrap">
+    <div class="glowa">
+      <h2><i class="znak" aria-hidden="true"></i>[[o_h]]</h2>
+      <p>[[o_p]]</p>
+    </div>
+    <div class="karty">
+[[CARDS]]
+    </div>
+  </div>
+</section>
+
+<div class="szew" aria-hidden="true"></div>
+<section class="maszyny" id="maszyny">
+  <div class="masz-foto"><img src="[[p]]img/tokarka-1600.webp" srcset="[[p]]img/tokarka-900.webp 900w, [[p]]img/tokarka-1600.webp 1600w" sizes="(min-width: 1000px) 45vw, 100vw" alt="[[k_alt]]" width="1600" height="1066" loading="lazy" decoding="async"></div>
+  <div class="masz-in">
+    <h2><i class="znak" aria-hidden="true"></i>[[k_h]]</h2>
+    <p class="masz-lead">[[k_p]]</p>
+    <ul class="masz-lista">
+      <li><b>[[t_cen]]</b><span class="osie">X 1200 <em>·</em> Y 510 <em>·</em> Z 510 mm</span><span>[[s_obr]]</span></li>
+      <li><b>[[t_cen]]</b><span class="osie">X 1000 <em>·</em> Y 500 <em>·</em> Z 500 mm</span><span>[[s_obr]]</span></li>
+      <li><b>[[t_cen]]</b><span class="osie">X 710 <em>·</em> Y 450 <em>·</em> Z 450 mm</span><span>[[s_obr]]</span></li>
+      <li><b>[[t_tok]]</b><span class="osie">X 220 <em>·</em> Z 800 mm</span><span>[[s_avg]]</span></li>
+      <li><b>[[t_tok]]</b><span class="osie">X 145 <em>·</em> Z 340 mm</span><span>[[s_avg2]]</span></li>
+    </ul>
+    <p class="masz-konw">[[k_conv]]</p>
+  </div>
+</section>
+
+<section class="sekcja" id="wyroby">
+  <div class="wrap">
+    <div class="glowa glowa-rzad">
+      <h2><i class="znak" aria-hidden="true"></i>[[w_h]]</h2>
+      <p>[[w_p]]</p>
+      <div class="kat-nav"><button class="sw-b sw-prev" type="button" aria-label="[[prev]]" data-kat="-1"></button><button class="sw-b sw-next" type="button" aria-label="[[next]]" data-kat="1"></button></div>
+    </div>
+  </div>
+  <div class="kat" tabindex="0" aria-label="[[w_h]]">
+[[KATALOG]]
+  </div>
+</section>
+
+<section class="sekcja szara" id="wycena">
+  <div class="wrap wycena">
+    <div class="wyc-txt">
+      <h2><i class="znak" aria-hidden="true"></i>[[z_h]]</h2>
+      <p>[[z_p]]</p>
+      <ol class="wyc-lista">
+        <li>[[z_l1]]</li>
+        <li>[[z_l2]]</li>
+        <li>[[z_l3]]</li>
+      </ol>
+      <p class="wyc-stali">[[z_stali]] <a href="http://k-tech.net.pl/formularz-zamowienia.html" rel="noopener">[[z_panel]]</a></p>
+      <p class="wyc-kontakt"><a href="mailto:biuro@k-tech.net.pl">biuro@k-tech.net.pl</a><a href="tel:+48663005555">663 005 555</a></p>
+    </div>
+    <form class="form" id="form" novalidate>
+      <div class="pole"><label for="f-name">[[f_name]]</label><input id="f-name" name="name" autocomplete="organization"></div>
+      <div class="pola2">
+        <div class="pole"><label for="f-mail">[[f_mail]]</label><input id="f-mail" name="mail" type="email" autocomplete="email"></div>
+        <div class="pole"><label for="f-tel">[[f_tel]]</label><input id="f-tel" name="tel" type="tel" autocomplete="tel"></div>
+      </div>
+      <div class="pola2">
+        <div class="pole"><label for="f-ilosc">[[f_ilosc]]</label><input id="f-ilosc" name="ilosc" inputmode="numeric"></div>
+        <div class="pole"><label for="f-mat">[[f_mat]]</label><input id="f-mat" name="mat" placeholder="[[f_mat_ph]]"></div>
+      </div>
+      <div class="pole"><label for="f-msg">[[f_msg]]</label><textarea id="f-msg" name="msg" rows="4"></textarea></div>
+      <label class="plik" for="f-plik"><input id="f-plik" type="file" name="plik" accept=".pdf,.dxf,.dwg,.step,.stp,.jpg,.jpeg,.png" multiple><b>[[f_file]]</b><span id="plik-n">[[f_file_s]]</span></label>
+      <button class="btn" type="submit"><span>[[f_send]]</span></button>
+      <p class="form-info" id="form-info" hidden>[[f_demo]]</p>
+    </form>
+  </div>
+</section>
+
+<section class="sekcja" id="kontakt">
+  <div class="wrap kontakt">
+    <div class="ko-txt">
+      <h2><i class="znak" aria-hidden="true"></i>[[ko_h]]</h2>
+      <p class="ko-firma"><b>[[ko_firma]]</b><br>ul. Boczna 8, 44-240 Żory</p>
+      <p class="ko-dane">
+        <a class="ko-duzy" href="tel:+48663005555">663 005 555</a>
+        <span>[[ko_tel]] <a href="tel:+48327501295">32 750 12 95</a> · [[ko_fax]] 32 750 12 96</span>
+        <a href="mailto:biuro@k-tech.net.pl">biuro@k-tech.net.pl</a>
+      </p>
+      <p class="ko-about">[[ko_about]]</p>
+    </div>
+    <div class="mapa"><iframe title="[[ko_map]]" src="https://maps.google.com/maps?q=ul.%20Boczna%208%2C%2044-240%20%C5%BBory&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  </div>
+</section>
+
+</main>
+
+<div class="szew" aria-hidden="true"></div>
+<footer class="stopka">
+  <div class="wrap stopka-in">
+    <div class="st-logo"><svg viewBox="0 0 300 92" role="img"><title>K-TECH</title><use href="#logo"/></svg></div>
+    <div class="st-kol">
+      <b>K-TECH</b>
+      <span>ul. Boczna 8</span>
+      <span>44-240 Żory</span>
+    </div>
+    <div class="st-kol">
+      <a href="tel:+48663005555">663 005 555</a>
+      <a href="tel:+48327501295">32 750 12 95</a>
+      <a href="mailto:biuro@k-tech.net.pl">biuro@k-tech.net.pl</a>
+    </div>
+    <nav class="st-kol" aria-label="Menu">
+      <a href="#oferta">[[m_oferta]]</a>
+      <a href="#maszyny">[[m_maszyny]]</a>
+      <a href="#wyroby">[[m_wyroby]]</a>
+      <a href="#wycena">[[m_wycena]]</a>
+    </nav>
+  </div>
+  <div class="wrap stopka-dol">
+    <span>© <span id="rok">2026</span> K-TECH Krzysztof Fojcik</span>
+    [[BADGE]]
+  </div>
+  <p class="wrap st-nota">[[ft_note]]</p>
+</footer>
+
+<div class="pasek" id="pasek" aria-hidden="true">
+  <a href="tel:+48663005555" class="pasek-tel" tabindex="-1"><svg><use href="#tel"/></svg>[[bar_call]]</a>
+  <a href="#wycena" class="pasek-cta" tabindex="-1">[[bar_cta]]</a>
+</div>
+
+<div class="cookies" id="cookies" hidden>
+  <p>[[ck_t]]</p>
+  <div><button type="button" data-ck="1">[[ck_ok]]</button><button type="button" data-ck="0" class="ck-no">[[ck_no]]</button></div>
+</div>
+
+<script src="[[p]]app.js" defer></script>
+</body>
+</html>
