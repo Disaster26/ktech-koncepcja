@@ -320,7 +320,7 @@ p{margin:0}
 .tab-grupy th.zab,.tab-wym th.zab b{color:#1F5FAF}
 .tab-wym td.zab{color:#1F5FAF}
 .tab-wym thead th.zab{border-left:0}
-.tab-wym td:nth-child(5),.tab-wym thead tr+tr th:nth-child(4){border-left:2px solid #C3C8CE}
+.u3 td:nth-child(5),.u3 thead tr+tr th:nth-child(4),.u4 td:nth-child(6),.u4 thead tr+tr th:nth-child(5){border-left:2px solid #C3C8CE}
 .tab-grupy th:nth-child(3){border-left:2px solid #C3C8CE}
 .tab-wym tbody th{position:sticky;left:0;z-index:1;background:#fff;text-align:left;font-weight:600;box-shadow:1px 0 0 #C3C8CE}
 .tab-wym .tab-ozn{position:sticky;left:0;z-index:2;text-align:left;box-shadow:1px 0 0 #C3C8CE}
@@ -349,3 +349,16 @@ p{margin:0}
 }
 .tab-hint{font-size:14px;color:var(--mut);margin-bottom:8px}
 @media (min-width:820px){.tab-hint{display:none}}
+
+.mod-tyt{font-size:clamp(1.5rem,2.6vw,2rem);padding-bottom:12px;border-bottom:3px solid var(--gr)}
+.mod .prof{display:block;width:100%;aspect-ratio:100/56;background:#fff}
+.mod-txt .mod-mat{font-size:.9rem;color:#6B7178}
+.tab-opis{max-width:640px}
+.tab-opis .kar-tol{margin-top:10px}
+.tab-opis .kar-uwaga{margin-top:6px;font-size:.98rem}
+.kar-inne{margin-top:28px;display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font-weight:600}
+.kar-inne span{color:var(--mut);font-weight:400;margin-right:4px}
+.kar-inne a{padding:6px 12px;background:var(--li);color:var(--gr);text-decoration:none}
+.kar-inne a:hover{background:#E4E7EA}
+.kar-inne a[aria-current]{background:var(--gr);color:#fff}
+.kar-foto img{border:1px solid var(--linia)}
