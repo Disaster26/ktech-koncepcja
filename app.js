@@ -50,7 +50,7 @@
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){linki.forEach(function(a){a.classList.toggle('akt',a.getAttribute('href')==='#'+e.target.id);});}});},{rootMargin:'-45% 0px -50% 0px'});
     ['oferta','maszyny','wyroby','wycena','kontakt'].forEach(function(id){var s=d.getElementById(id);if(s)io.observe(s);});
     var start=d.getElementById('start');
-    new IntersectionObserver(function(es){if(es[0].isIntersecting)linki.forEach(function(a){a.classList.remove('akt');});},{rootMargin:'-45% 0px -50% 0px'}).observe(start);
+    if(start)new IntersectionObserver(function(es){if(es[0].isIntersecting)linki.forEach(function(a){a.classList.remove('akt');});},{rootMargin:'-45% 0px -50% 0px'}).observe(start);
   }
 
   // dolny pasek po przewinięciu za przycisk hero
@@ -73,5 +73,25 @@
   if(ck&&zg===null){
     var pok=function(){if(window.scrollY>200){ck.hidden=false;window.removeEventListener('scroll',pok);}};window.addEventListener('scroll',pok,{passive:true});
     ck.addEventListener('click',function(e){var bt=e.target.closest('[data-ck]');if(!bt)return;try{localStorage.setItem('ktech-zgoda',bt.getAttribute('data-ck'));}catch(er){}ck.hidden=true;});
+  }
+
+  // tabela wymiarów: filtr po średnicy
+  var fi=d.getElementById('filtr-d'),tb=d.getElementById('tab-wym');
+  if(fi&&tb){
+    var rows=[].slice.call(tb.tBodies[0].rows),info=d.getElementById('filtr-info'),brak=d.getElementById('filtr-brak'),czysc=d.getElementById('filtr-x');
+    var num=function(v){return parseFloat(String(v).replace(/[()]/g,' ').trim().split(/\s+/).pop().replace(',','.'));};
+    var filtruj=function(){
+      var v=parseFloat(fi.value.replace(',','.')),n=0;
+      rows.forEach(function(r){
+        var ok=isNaN(v);
+        if(!ok){var d1=num(r.getAttribute('data-d1')),d3=num(r.getAttribute('data-d3')),d2=num(r.getAttribute('data-d2'));ok=Math.abs(d1-v)<=10||Math.abs(d3-v)<=10||Math.abs(d2-v)<=10;}
+        r.hidden=!ok;if(ok)n++;
+      });
+      info.textContent=isNaN(v)?rows.length+' rozmiarów w typoszeregu':'Pasuje: '+n+' z '+rows.length+' (średnica ±10 mm)';
+      brak.hidden=!(n===0);czysc.hidden=isNaN(v);
+    };
+    fi.addEventListener('input',filtruj);
+    czysc.addEventListener('click',function(){fi.value='';filtruj();fi.focus();});
+    filtruj();
   }
 })();

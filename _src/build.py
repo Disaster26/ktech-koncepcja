@@ -5,6 +5,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TPL = open(os.path.join(ROOT, '_src', 'index.src.html'), encoding='utf-8').read()
 
 BADGE = open(os.path.join(ROOT, '_src', 'badge.html'), encoding='utf-8').read().strip()
+HERO_SVG = open(os.path.join(ROOT, '_src', 'hero_rys.svg'), encoding='utf-8').read().strip()
 BADGE_CSS = open(os.path.join(ROOT, '_src', 'badge_style.css'), encoding='utf-8').read().strip()
 
 # ---------------- teksty ----------------
@@ -13,7 +14,7 @@ T['pl'] = dict(
   lang='pl', p='', title='K-Tech Żory - obróbka CNC, hydraulika siłowa, kostki STECKO, uszczelnienia',
   desc='Obróbka skrawaniem CNC w Żorach: kostki i przyłącza STECKO, tłoki, dławice, uszczelnienia techniczne, części obudów zmechanizowanych, konstrukcje spawane. Wycena z rysunku.',
   skip='Przejdź do treści', home='K-Tech - strona główna', firmaword='Przedsiębiorstwo Wielobranżowe',
-  m_oferta='Oferta', m_maszyny='Maszyny', m_wyroby='Wyroby', m_wycena='Wycena', m_kontakt='Kontakt',
+  m_oferta='Oferta', m_usz='Uszczelnienia', usz_link='Modele i tabele wymiarów', m_maszyny='Maszyny', m_wyroby='Wyroby', m_wycena='Wycena', m_kontakt='Kontakt',
   menu_open='Otwórz menu', call='Zadzwoń',
   h1='Toczymy i frezujemy części, które pracują pod ciśnieniem',
   lead='Obróbka CNC w Żorach: kostki STECKO, tłoki, dławice, uszczelnienia i części obudów zmechanizowanych. Seryjnie albo według Państwa rysunku.',
@@ -58,7 +59,7 @@ T['en'] = dict(T['pl'],
   lang='en', p='../', title='K-Tech Żory, Poland - CNC machining, hydraulic components, STECKO blocks, seals',
   desc='CNC turning and milling in Żory, Poland: STECKO blocks and connectors, pistons, glands, technical seals, parts for powered roof supports, welded structures. Quotes from drawings.',
   skip='Skip to content', home='K-Tech - home', firmaword='Multi-trade company',
-  m_oferta='Products', m_maszyny='Machines', m_wyroby='Catalogue', m_wycena='Quote', m_kontakt='Contact',
+  m_oferta='Products', m_usz='Seals', usz_link='Models and size tables (PL)', m_maszyny='Machines', m_wyroby='Catalogue', m_wycena='Quote', m_kontakt='Contact',
   menu_open='Open menu', call='Call',
   h1='We turn and mill parts that work under pressure',
   lead='CNC machining in Żory, Poland: STECKO blocks, pistons, glands, seals and parts for powered roof supports. In series or to your drawing.',
@@ -102,7 +103,7 @@ T['de'] = dict(T['pl'],
   lang='de', p='../', title='K-Tech Żory, Polen - CNC-Bearbeitung, Hydraulikteile, STECKO-Blöcke, Dichtungen',
   desc='CNC-Drehen und -Fräsen in Żory (Polen): STECKO-Blöcke und -Anschlüsse, Kolben, Führungsbuchsen, technische Dichtungen, Teile für Schreitausbau, Schweißkonstruktionen. Angebot nach Zeichnung.',
   skip='Zum Inhalt', home='K-Tech - Startseite', firmaword='Mehrbranchenunternehmen',
-  m_oferta='Leistungen', m_maszyny='Maschinen', m_wyroby='Katalog', m_wycena='Anfrage', m_kontakt='Kontakt',
+  m_oferta='Leistungen', m_usz='Dichtungen', usz_link='Modelle und Maßtabellen (PL)', m_maszyny='Maschinen', m_wyroby='Katalog', m_wycena='Anfrage', m_kontakt='Kontakt',
   menu_open='Menü öffnen', call='Anrufen',
   h1='Wir drehen und fräsen Teile, die unter Druck arbeiten',
   lead='CNC-Bearbeitung in Żory, Polen: STECKO-Blöcke, Kolben, Führungsbuchsen, Dichtungen und Teile für Schreitausbau. In Serie oder nach Ihrer Zeichnung.',
@@ -180,6 +181,7 @@ def cards(t):
             lazy = 'loading="lazy" ' if True else ''
             slides.append(f'<div class="sw-sl"><img src="{t["p"]}img/r/{im}.webp" alt="{esc(t[k+"_h"])}, {t["ph"].lower()} {j+1}" {lazy}decoding="async" width="638" height="415" draggable="false"></div>')
         big = ' karta-duza' if i == 0 else ''
+        link = '\n' + f'  <a class="karta-link" href="{t["p"]}uszczelnienia/">{esc(t["usz_link"])}</a>' if k == 'c4' else ''
         out.append(f'''<article class="karta{big}">
   <div class="sw" data-of="{esc(t['of'])}">
     <div class="sw-tor" tabindex="0" aria-label="{esc(t[k+'_h'])}">{''.join(slides)}</div>
@@ -187,7 +189,7 @@ def cards(t):
     <span class="sw-n">1 {esc(t['of'])} {len(imgs)}</span>
   </div>
   <h3>{esc(t[k+'_h'])}</h3>
-  <p>{esc(t[k+'_p'])}</p>
+  <p>{esc(t[k+'_p'])}</p>{link}
 </article>''')
     return '\n'.join(out)
 
@@ -204,6 +206,7 @@ def build(code):
     t = T[code]
     s = TPL
     s = s.replace('[[CARDS]]', cards(t)).replace('[[KATALOG]]', katalog(t))
+    s = s.replace('[[HERO_SVG]]', HERO_SVG)
     s = s.replace('[[BADGE]]', BADGE).replace('[[BADGE_CSS]]', BADGE_CSS)
     def rep(m):
         k = m.group(1)

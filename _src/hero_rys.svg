@@ -1,0 +1,56 @@
+<svg class="hero-rys" viewBox="0 0 900 640" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="kres" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="9" stroke="#9EA5AD" stroke-width="1"/></pattern>
+    <marker id="gr" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 1.6 10 5 0 8.4Z" fill="#4A5058"/></marker>
+  </defs>
+  <g fill="none" stroke="#3E444B" stroke-width="1.6" stroke-linejoin="round">
+    <!-- tuleja cylindra -->
+    <rect x="150" y="150" width="710" height="26" fill="url(#kres)"/>
+    <!-- tłok w przekroju z rowkiem -->
+    <path d="M150 214 162 202H238L250 214V300Q250 306 256 306H586Q592 306 592 300V214L604 202H860V420H150Z" fill="url(#kres)"/>
+    <path d="M232 420V372H860" stroke-width="1.1"/>
+    <path d="M640 202V250H700V202" stroke-width="1.1"/>
+    <!-- uszczelka DSn w rowku -->
+    <path d="M262 182H292V232H262Z" fill="#fff"/>
+    <path d="M550 182H580V232H550Z" fill="#fff"/>
+    <path d="M300 236 300 192 330 178H512L542 192V236Z" fill="#FF9B06" stroke="#3E444B"/>
+    <path d="M256 236H586V292Q586 304 574 304H268Q256 304 256 292Z" fill="#2B2F34"/>
+  </g>
+  <!-- osie i linie wymiarowe -->
+  <g fill="none" stroke="#5B6168" stroke-width=".9">
+    <path d="M40 560H880" stroke-dasharray="26 6 4 6"/>
+    <path d="M421 110V330" stroke-dasharray="18 5 3 5" stroke="#8C939B"/>
+    <!-- pomocnicze -->
+    <path d="M44 176H148M84 202H148M124 306H248M256 116V300M586 116V300M250 314V486M592 314V486"/>
+    <!-- wymiary -->
+    <path d="M58 556V180" marker-end="url(#gr)"/>
+    <path d="M98 556V206" marker-end="url(#gr)"/>
+    <path d="M138 556V310" marker-end="url(#gr)"/>
+    <path d="M260 124H582" marker-start="url(#gr)" marker-end="url(#gr)"/>
+    <path d="M254 476H588" marker-start="url(#gr)" marker-end="url(#gr)"/>
+    <path d="M163 201 112 140H86"/>
+    <path d="M253 302 205 350H184"/>
+  </g>
+  <g fill="#3E444B" font-family="Barlow,sans-serif" font-size="19">
+    <text transform="translate(51 470) rotate(-90)">ØD3 H10</text>
+    <text transform="translate(91 470) rotate(-90)">ØD1 <tspan font-size="12" dy="-7">-0,2</tspan></text>
+    <text transform="translate(131 470) rotate(-90)">ØD2 h10</text>
+    <text x="414" y="116">h</text>
+    <text x="402" y="468">L <tspan font-size="12" dy="-7">+0,2</tspan></text>
+    <text x="76" y="134">r</text>
+    <text x="170" y="356">R</text>
+  </g>
+  <!-- tabliczka rysunkowa -->
+  <g fill="none" stroke="#3E444B" stroke-width="1.2">
+    <rect x="610" y="520" width="270" height="96" fill="#F4F5F7"/>
+    <path d="M610 552H880M610 584H880M730 552V616M806 584V616"/>
+  </g>
+  <g fill="#3E444B" font-family="Barlow,sans-serif" font-size="15">
+    <text x="622" y="542" font-weight="600">K-TECH Żory</text>
+    <text x="622" y="574">DSn</text>
+    <text x="742" y="574">KT-DSn01</text>
+    <text x="622" y="606">d1 x d2 x h</text>
+    <text x="742" y="606">2:1</text>
+    <text x="818" y="606">A4</text>
+  </g>
+</svg>
