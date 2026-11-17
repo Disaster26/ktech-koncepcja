@@ -33,8 +33,8 @@
     <nav class="nav" aria-label="Menu">
       <a href="#oferta">[[m_oferta]]</a>
       <a href="[[p]]uszczelnienia/">[[m_usz]]</a>
-      <a href="#maszyny">[[m_maszyny]]</a>
       <a href="#wyroby">[[m_wyroby]]</a>
+      <a href="#maszyny">[[m_maszyny]]</a>
       <a href="#wycena">[[m_wycena]]</a>
       <a href="#kontakt">[[m_kontakt]]</a>
     </nav>
@@ -46,8 +46,8 @@
     <nav aria-label="Menu">
       <a href="#oferta">[[m_oferta]]</a>
       <a href="[[p]]uszczelnienia/">[[m_usz]]</a>
-      <a href="#maszyny">[[m_maszyny]]</a>
       <a href="#wyroby">[[m_wyroby]]</a>
+      <a href="#maszyny">[[m_maszyny]]</a>
       <a href="#wycena">[[m_wycena]]</a>
       <a href="#kontakt">[[m_kontakt]]</a>
     </nav>
@@ -61,11 +61,11 @@
 <main id="tresc">
 
 <section class="hero" id="start">
-  [[HERO_SVG]]
+  <div class="hero-tlo" aria-hidden="true">[[HERO_SVG]]</div>
   <div class="hero-in">
     <h1>[[h1]]</h1>
     <p class="lead">[[lead]]</p>
-    <a class="btn" href="#wycena" id="hero-cta"><span>[[cta]]</span></a>
+    <div class="hero-akcje"><a class="btn" href="#wycena" id="hero-cta"><span>[[cta]]</span></a><a class="hero-link" href="[[p]]uszczelnienia/">[[cta2]]</a></div>
   </div>
 </section>
 <div class="szew" aria-hidden="true"></div>
@@ -79,6 +79,19 @@
     <div class="karty">
 [[CARDS]]
     </div>
+  </div>
+</section>
+
+<section class="sekcja" id="wyroby">
+  <div class="wrap">
+    <div class="glowa glowa-rzad">
+      <h2><i class="znak" aria-hidden="true"></i>[[w_h]]</h2>
+      <p>[[w_p]]</p>
+      <div class="kat-nav"><button class="sw-b sw-prev" type="button" aria-label="[[prev]]" data-kat="-1"></button><button class="sw-b sw-next" type="button" aria-label="[[next]]" data-kat="1"></button></div>
+    </div>
+  </div>
+  <div class="kat" tabindex="0" aria-label="[[w_h]]">
+[[KATALOG]]
   </div>
 </section>
 
@@ -99,18 +112,7 @@
   </div>
 </section>
 
-<section class="sekcja" id="wyroby">
-  <div class="wrap">
-    <div class="glowa glowa-rzad">
-      <h2><i class="znak" aria-hidden="true"></i>[[w_h]]</h2>
-      <p>[[w_p]]</p>
-      <div class="kat-nav"><button class="sw-b sw-prev" type="button" aria-label="[[prev]]" data-kat="-1"></button><button class="sw-b sw-next" type="button" aria-label="[[next]]" data-kat="1"></button></div>
-    </div>
-  </div>
-  <div class="kat" tabindex="0" aria-label="[[w_h]]">
-[[KATALOG]]
-  </div>
-</section>
+
 
 <section class="sekcja szara" id="wycena">
   <div class="wrap wycena">
@@ -183,8 +185,8 @@
     <nav class="st-kol" aria-label="Menu">
       <a href="#oferta">[[m_oferta]]</a>
       <a href="[[p]]uszczelnienia/">[[m_usz]]</a>
-      <a href="#maszyny">[[m_maszyny]]</a>
       <a href="#wyroby">[[m_wyroby]]</a>
+      <a href="#maszyny">[[m_maszyny]]</a>
       <a href="#wycena">[[m_wycena]]</a>
     </nav>
   </div>
