@@ -66,17 +66,19 @@ p{margin:0}
 .menu-mob-dol .jezyki{display:flex}
 .menu-mob-tel{font:700 19px/1 "Barlow SC",sans-serif;text-decoration:none;color:var(--gr);padding:10px 0}
 
-/* hero - arkusz rysunku technicznego */
-.hero{position:relative;min-height:calc(100svh - var(--hh));display:flex;flex-direction:column;justify-content:flex-end;color:var(--gr);overflow:hidden;
-  background-color:#E8EBEE;
-  background-image:linear-gradient(#D3D8DD 1px,transparent 1px),linear-gradient(90deg,#D3D8DD 1px,transparent 1px),linear-gradient(#DEE2E6 1px,transparent 1px),linear-gradient(90deg,#DEE2E6 1px,transparent 1px);
-  background-size:120px 120px,120px 120px,24px 24px,24px 24px;background-position:-1px -1px}
-.hero::after{content:"";position:absolute;inset:14px;border:1.5px solid #AEB4BB;pointer-events:none}
-.hero-rys{position:absolute;left:50%;top:22px;width:min(104vw,620px,calc((100svh - var(--hh) - 400px)*1.4));min-width:0;height:auto;transform:translateX(-50%)}
+/* hero - rysunek techniczny K-Tech (dławica 7K-6A) jako tło */
+.hero{position:relative;min-height:calc(100svh - var(--hh));display:flex;flex-direction:column;justify-content:flex-end;color:var(--gr);overflow:hidden;background:#F1F3F5;isolation:isolate}
+.hero-tlo{position:absolute;inset:0;z-index:-1;pointer-events:none;color:#8C96A1}
+.hero-rys{position:absolute;left:50%;top:-4%;width:min(150vw,720px);height:auto;transform:translateX(-50%) rotate(-8deg);opacity:.62;animation:rys-dryf 38s ease-in-out infinite alternate;will-change:transform}
+.hero-tlo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(241,243,245,0) 22%,rgba(241,243,245,.9) 50%,#F1F3F5 64%)}
+@keyframes rys-dryf{from{transform:translateX(-50%) rotate(-8deg)}to{transform:translateX(-53%) translateY(2.5%) rotate(-5.5deg)}}
+.hero-akcje{display:flex;flex-wrap:wrap;align-items:center;gap:14px 30px;margin-top:28px}
+.hero-akcje .btn{margin-top:0}
+.hero-link{font:700 17px/1.2 "Barlow SC",Barlow,sans-serif;color:var(--gr);text-decoration:none;border-bottom:3px solid var(--st);padding:6px 0 3px}
+.hero-link:hover{border-color:var(--or)}
 .hero-in{position:relative;z-index:2;width:min(1240px,100% - 40px);margin-inline:auto;padding:120px 0 40px}
-.hero h1{font-size:clamp(2rem,8.6vw,4.6rem);max-width:15ch;text-wrap:balance}
-.lead{margin-top:16px;font-size:clamp(1.02rem,1.2vw + .8rem,1.3rem);line-height:1.5;max-width:40ch;color:#3A4047}
-.hero .btn{margin-top:28px}
+.hero h1{font-size:clamp(1.9rem,7.6vw,4.2rem);max-width:17ch;text-wrap:balance}
+.lead{margin-top:16px;font-size:clamp(1.02rem,1.2vw + .8rem,1.25rem);line-height:1.5;max-width:44ch;color:#353B42}
 
 /* sekcje */
 .sekcja{padding:clamp(56px,8vw,112px) 0}
@@ -221,11 +223,12 @@ p{margin:0}
   .hero{--m:max(48px,(100vw - 1240px)/2)}
   .hero .hero-in{width:min(1240px,100% - 96px)}
   .top-tel{white-space:nowrap}
-  .hero-in>*{max-width:600px}
-  .hero-rys{left:auto;right:calc(var(--m) - 8px);top:50%;width:min(860px,calc(100vw - 2*var(--m) - 660px),calc((100svh - var(--hh) - 90px)*1.406));min-width:0;transform:translateY(-50%)}
-  .hero::after{inset:22px}
+  .hero-in>*{max-width:640px}
+  .hero-rys{left:auto;right:calc(var(--m) - 40px);top:50%;width:min(860px,58vw,calc((100svh - var(--hh))*1.15));transform:translateY(-50%) rotate(-8deg);opacity:.7;animation-name:rys-dryf-d}
+  .hero-tlo::after{background:linear-gradient(90deg,#F1F3F5 0,rgba(241,243,245,.94) 34%,rgba(241,243,245,.35) 58%,rgba(241,243,245,0) 76%)}
+  @keyframes rys-dryf-d{from{transform:translateY(-50%) rotate(-8deg)}to{transform:translate(-2.5%,-47%) rotate(-5.5deg)}}
   .hero-in{padding:60px 0}
-  .hero h1{font-size:clamp(2.7rem,3.9vw,4.3rem)}
+  .hero h1{font-size:clamp(2.5rem,3.5vw,3.9rem)}
   .karty{grid-template-columns:repeat(3,minmax(0,1fr))}
   .karta-duza{grid-column:span 2;grid-row:span 2}
   .karta-duza .sw-sl{aspect-ratio:auto;height:100%}
@@ -243,17 +246,17 @@ p{margin:0}
   .pasek{display:none}
 }
 @media (min-width:1000px) and (max-height:820px){
-  .hero h1{font-size:clamp(2.6rem,3.8vw,4rem)}
+  .hero h1{font-size:clamp(2.4rem,3.3vw,3.6rem)}
 }
 @media (max-width:999px){
   .hero-in{padding-top:max(96px,24svh);padding-bottom:32px}
 }
 @media (max-width:380px){
-  .hero h1{font-size:1.9rem}
+  .hero h1{font-size:1.75rem}
   .lead{font-size:1rem}
-  .hero .btn{margin-top:24px}
+  .hero-akcje{margin-top:24px}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.hero-rys{animation:none!important}}
 
 /* ---------- podstrony: uszczelnienia ---------- */
 .podstrona .sekcja{padding:clamp(36px,6vw,80px) 0}
@@ -364,4 +367,6 @@ p{margin:0}
 .kar-inne a[aria-current]{background:var(--gr);color:#fff}
 .kar-foto img{border:1px solid var(--linia)}
 @media (min-width:1200px){.logo svg{height:42px}}
-@media (min-width:1000px) and (max-width:1199px){.nav a{padding:8px 8px}.nav a::after{left:6px;right:6px}.top-in{gap:12px}}
+@media (min-width:1000px) and (max-width:1199px){.nav{gap:0}.nav a{padding:8px 7px;font-size:15px}.nav a::after{left:5px;right:5px}.top-in{gap:10px}.jezyki a{padding:7px 5px}}
+.nav a{white-space:nowrap}
+.mod .prof{max-width:320px}

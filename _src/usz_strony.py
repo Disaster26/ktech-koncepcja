@@ -27,8 +27,10 @@ PROF = {
   'vk':  lambda n: LINIE + g('M14 14H24V30L28 42L24 44L20 34L17 44L12 42L14 30Z'),
   'du':  lambda n: LINIE + g('M13 14H29L33 21L29 28L33 35L29 42H13L9 35L13 28L9 21Z', '#C4C8CC'),
 }
+from profile_dane import PROFILE
 def profil(key, n):
-    return f'<svg class="prof" viewBox="0 0 100 56" aria-hidden="true" focusable="false">{PROF[key](n)}</svg>'
+    p = PROFILE[key]
+    return f'<svg class="prof" viewBox="{p["vb"]}" aria-hidden="true" focusable="false">{p["body"]}</svg>'
 
 KARTA = {k['slug']: k for k in KARTY}
 

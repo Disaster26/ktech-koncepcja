@@ -1,4 +1,5 @@
 # Dane przepisane z kart katalogowych K-Tech (maile 14.11.2026, 10:26).
+# 17.11.2026 20:14: aktualne karty DS, DSn, DZ, PO (DSn: 251,2 i 252,5 zostają na życzenie klienta).
 # Tabele przepisane z renderów kart (300 dpi), bez zmian wartości.
 
 MEDIUM = 'oleje mineralne; emulsje olejowo-wodne HFA, HFB, HFC; wodny roztwór glikolu etylowego, np. Polikon Test'
@@ -28,7 +29,7 @@ dict(slug='ds', sym='DS', typ='Uszczelnienie tłoka', nr='KT-DS01', kol=K_TLOK, 
   wzor='d1 x d2 x h', przyklad='DS 120 x 100 x 25',
   rows=T('''
 63 46 8 62 46 63 9 0,5 0,2
-75 55 25 73,6 55 75 31 0,5 0,2
+75 55 25 73,5 55 75 31 0,5 0,2
 90 70 25 89 70 90 31 0,5 0,2
 120 100 25 118,5 100 120 36 0,5 0,2
 121 100 25 118,5 100 121 36 0,5 0,2
@@ -45,7 +46,7 @@ dict(slug='ds', sym='DS', typ='Uszczelnienie tłoka', nr='KT-DS01', kol=K_TLOK, 
 202,5 175 32 198,5 175 202,5 43 0,8 0,2
 203,8 175 32 198,5 175 203,8 43 0,8 0,2
 250 220 38 249 220 250 49 0,8 0,5
-251 220 38 249 220 251 49 0,8 0,5
+251,2 220 38 249 220 251,2 49 0,8 0,5
 252,5 220 38 249 220 252,5 49 0,8 0,5
 253,8 220 38 249 220 253,8 49 0,8 0,5
 255 220 38 249 220 255 49 0,8 0,5''')),
@@ -53,7 +54,7 @@ dict(slug='ds', sym='DS', typ='Uszczelnienie tłoka', nr='KT-DS01', kol=K_TLOK, 
 dict(slug='dsn', sym='DSn', typ='Uszczelnienie tłoka', nr='KT-DSn01', kol=K_TLOK, usz=3,
   opis='Element uszczelniający wielokomponentowy, dwustronnego działania, zabudowa na tłok stały. Wysokociśnieniowa uszczelka wykonana z materiałów termoplastycznych. Stosowana głównie w siłownikach górniczych, a typoszereg standardowy także w hydraulice innych gałęzi przemysłu.',
   param=[('Ciśnienie', '500 bar / 50 MPa'), ('Temperatura pracy', '-30 ÷ +90 °C'), ('Prędkość ruchu', 'do 0,5 m/s'), ('Medium', MEDIUM)],
-  konstr=[('Część dolna', 'TPU-80 lub NBR-80 Shore A'), ('Część czołowa', 'TPU-95 Shore A'), ('Pierścień przeciwwyciskowy', 'POM'),
+  konstr=[('Część dolna', 'NBR-80 Shore A'), ('Część czołowa', 'TPU-95 Shore A'), ('Pierścień przeciwwyciskowy', 'POM'),
           ('Cechy', 'wysoka odporność na ścieranie; poliacetalowe pierścienie zabezpieczające przed wyciskaniem; pierścienie oporowe opcjonalnie z jednej lub z dwóch stron')],
   tol='ØD3 H10, ØD2 h10, ØD1 -0,2, L +0,2, h +0,2 / +0,1',
   uwagi=['W zależności od szerokości gniazda stosowane są pierścienie przeciwwyciskowe (dla szerokości 25 mm) lub pierścienie przeciwwyciskowo-oporowe (dla szerokości 32 i 38 mm).',
@@ -62,15 +63,14 @@ dict(slug='dsn', sym='DSn', typ='Uszczelnienie tłoka', nr='KT-DSn01', kol=K_TLO
   rows=T('''
 75 55 22 74,4 55 75 23 1 0,5
 90 75 12,5 89,4 75 90 13,5 1 0,5
-110 99 12 109,4 99 110 13 1 0,5
+110 95 12,5 109,4 95 110 13,5 1 0,5
 120 105 15 119,4 105 120 16 1 0,5
-135 120 15 134,4 120 110 16 1 0,5
+135 120 15 134,4 120 135 16 1 0,5
 150 133 19 149,4 133 150 20 1 0,5
 195 175 15 194 175 195 16 1 0,5
 200 180 15 199 180 200 16 1 0,5
 230 205 (25)24 229 205 230 (26)25 1 0,5
 240 215 (25)24 239 215 240 (26)25 1 0,5
-250 220 (38)25 249 220 250 (39)26 1 0,5
 250 225 (25)24 249 225 250 (26)25 1 0,5
 251,2 225 (25)24 249 225 251,2 (26)25 1 0,5
 252,5 225 (25)24 249 225 252,5 (26)25 1 0,5
@@ -78,8 +78,11 @@ dict(slug='dsn', sym='DSn', typ='Uszczelnienie tłoka', nr='KT-DSn01', kol=K_TLO
 275 250 (25)24 274 250 275 (26)25 1 0,5
 280 255 (25)24 279 255 280 (26)25 1 0,5
 290 265 (25)24 289 265 290 (26)25 1 0,5
+290 265 26 289 265 290 27 1 0,5
 300 275 (25)24 299 275 300 (26)25 1 0,5
-320 290 29 319 290 320 30 1 0,5''')),
+320 290 29 319 290 320 30 1 0,5
+380 350 31 379 350 380 32 1 0,5
+400 370 31 399 370 400 32 1 0,5''')),
 
 dict(slug='dz', sym='DZ', typ='Uszczelnienie tłoka', nr='KT-DZ01', kol=K_TLOK, usz=3,
   opis='Uszczelnienie DZ-Usmt jest elementem uszczelniającym jednokomponentowym, dwustronnego działania, zabudowa na tłok stały. Wysokociśnieniowa uszczelka wykonana z materiałów termoplastycznych. Stosowana głównie w siłownikach górniczych, a typoszereg standardowy także w hydraulice innych gałęzi przemysłu.',
@@ -90,11 +93,11 @@ dict(slug='dz', sym='DZ', typ='Uszczelnienie tłoka', nr='KT-DZ01', kol=K_TLOK, 
   uwagi=['Do montażu zalecana jest faza montażowa min. 15°, maks. 30°, o szerokości około 10 mm.', 'Pozostałe wymiary na zapytanie.'],
   wzor='d1 x d2 x h', przyklad='DZ 210 x 190 x 15',
   rows=T('''
-90 80 8 89 80 120 9 0,5 0,2
+90 80 8 89 80 90 9 0,5 0,2
 120 102 15 119 102 120 16 0,5 0,2
 120 105 12 119 105 120 13 0,5 0,2
 120 105 15 119 105 120 16 0,5 0,2
-125 110 15 124 110 120 16 0,5 0,2
+125 110 15 124 110 125 16 0,5 0,2
 135 120 15 134 120 135 16 0,5 0,2
 160 145 15 159 145 160 16 0,5 0,2
 161,2 145 15 160 145 161,2 16 0,5 0,2
@@ -121,7 +124,7 @@ dict(slug='po', sym='PO', typ='Pierścień oporowy', nr='KT-PO01', kol=K_TLOK, u
 120 100 5 118,5 100 120 36 0,5 0,2
 135 110 5 133,5 110 135 43 0,5 0,2
 160 135 5 158,5 135 160 43 0,5 0,2
-161 135 5 159,5 135 161,2 43 0,5 0,2
+161,2 135 5 159,5 135 161,2 43 0,5 0,2
 170 145 5 168,5 145 170 43 0,8 0,2
 125 115,8 2 124 115,8 125 2 0,8 0,2
 120 110,8 3 119 110,8 120 3 0,8 0,2
@@ -136,7 +139,7 @@ dict(slug='po', sym='PO', typ='Pierścień oporowy', nr='KT-PO01', kol=K_TLOK, u
 280 255 6 278,5 255 280 32 1 0,2
 290 278,8 4 288,5 278,8 290 4 1 0,2
 320 290 5 318,5 290 320 32 1 0,2
-321 290 5 318,5 290 321,2 32 1 0,2''')),
+321,2 290 5 318,5 290 321,2 32 1 0,2''')),
 
 dict(slug='js', sym='JS', typ='Uszczelnienie tłoczyska', nr='KT-JS-2', kol=K_TLOCZ, usz=3,
   opis='Element uszczelniający jednokomponentowy, jednostronnego działania. Wysokociśnieniowa uszczelka wykonana z materiałów termoplastycznych. Stosowana głównie w siłownikach górniczych, a typoszereg standardowy także w hydraulice innych gałęzi przemysłu.',
@@ -246,14 +249,14 @@ SPIS = [
   ('DZ', 'Uszczelnienie tłoka', 'TPU/POM', 'dz', 'dz'),
   ('PO', 'Pierścień oporowy', 'POM', 'po', 'po'),
   ('PP', 'Pierścień prowadzący tłokowy', 'POM', None, 'pp'),
-  ('WFE', 'Pierścień prowadzący tłokowy z kanałami', 'POM', None, 'wfe'),
+  ('PPT', 'Pierścień prowadzący', 'POLYESTER', None, 'ppt'),
   ('JSn', 'Uszczelnienie tłoczyska', 'TPU/NBR/POM', 'jsn', 'jsn'),
   ('JS', 'Uszczelnienie tłoczyska', 'TPU/POM', 'js', 'js'),
   ('PZ', 'Pierścień zgarniający', 'TPU', 'pz', 'pz'),
-  ('PP', 'Pierścień prowadzący tłoczyskowy', 'POM', None, 'pp'),
+  ('PP', 'Pierścień prowadzący tłoczyskowy', 'POM', None, 'ppx'),
   ('PW', 'Pierścień prowadzący tłoczyskowy, profilowy', 'POM', None, 'pw'),
   ('PE', 'Pierścień podporowy', 'POM / PTFE', None, 'pe'),
   ('O', 'O-ring', 'NBR', None, 'o'),
-  ('VK', 'Uszczelka statyczna', 'TPU', None, 'vk'),
-  ('DU', 'Uszczelka statyczna', 'TPU', None, 'du'),
+  ('VK', 'Uszczelnienie statyczne', 'TPU', None, 'vk'),
+  ('DU', 'Uszczelnienie statyczne', 'TPU', None, 'du'),
 ]
