@@ -289,7 +289,7 @@ p{margin:0}
 
 .kar-gora{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-items:center}
 .kar-foto{margin:0}
-.kar-typ{font:600 16px/1.2 Barlow,sans-serif;color:#C77400}
+.kar-typ{font:600 16px/1.2 Barlow,sans-serif;color:#A35C00}
 .kar-opis h1{font-size:clamp(3rem,7vw,5rem);line-height:1;margin-top:4px}
 .kar-opis>p:not(.kar-typ){margin-top:14px;color:var(--mut);font-size:1.06rem;max-width:58ch}
 .kar-opis .kar-zam{color:var(--tx)!important}
