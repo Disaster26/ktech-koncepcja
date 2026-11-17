@@ -24,9 +24,6 @@ p{margin:0}
 .wrap{width:min(1240px,100% - 40px);margin-inline:auto}
 :focus-visible{outline:3px solid var(--or);outline-offset:2px}
 
-/* logo */
-.lg-top{font:italic 800 10.4px/1 Barlow,sans-serif;fill:currentColor}
-.lg-txt{font:italic 800 76px/1 Barlow,sans-serif;fill:#fff;stroke:rgba(0,0,0,.28);stroke-width:1;paint-order:stroke}
 
 /* przycisk = blok "K-" z logo */
 .btn{position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 30px;margin-left:8px;font:700 17px/1.2 "Barlow SC",Barlow,sans-serif;color:var(--gr);text-decoration:none;border:0;background:none;cursor:pointer}
@@ -46,7 +43,7 @@ p{margin:0}
 .top{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 1px 0 var(--linia)}
 .top-in{height:var(--hh);display:flex;align-items:center;gap:18px;width:min(1240px,100% - 32px);margin-inline:auto}
 .logo{display:block;color:var(--gr);flex:none}
-.logo svg{display:block;height:44px;width:auto;aspect-ratio:300/92}
+.logo svg{display:block;height:38px;width:auto;aspect-ratio:702.6/154.7}
 .nav{display:none;margin-left:auto;gap:4px}
 .nav a{position:relative;padding:8px 14px;text-decoration:none;font:600 16px/1 Barlow,sans-serif;color:var(--tx)}
 .nav a::after{content:"";position:absolute;left:12px;right:12px;bottom:0;height:4px;background:var(--or);transform:skewX(var(--skos)) scaleX(0);transform-origin:left;transition:transform .2s}
@@ -168,7 +165,11 @@ p{margin:0}
 .ko-dane{margin-top:18px;display:flex;flex-direction:column;gap:6px}
 .ko-dane a{color:var(--gr)}
 .ko-duzy{font:700 2rem/1.1 "Barlow SC",sans-serif;text-decoration:none}
-.ko-about{margin-top:20px;color:var(--mut)}
+.ko-zakres{margin-top:26px;padding-top:20px;border-top:1px solid var(--linia)}
+.ko-zakres h3{font-size:1.15rem;color:var(--gr)}
+.ko-zakres ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
+.ko-zakres li{position:relative;padding-left:26px;line-height:1.45}
+.ko-zakres li::before{content:"";position:absolute;left:2px;top:.42em;width:12px;height:.62em;background:linear-gradient(90deg,var(--or) 0 58%,transparent 58% 72%,var(--st) 72%);transform:skewX(var(--skos))}
 .mapa{min-height:320px;background:#E4E6E8;position:relative}
 .mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.35)}
 
@@ -176,7 +177,7 @@ p{margin:0}
 .stopka{background:var(--gr);color:#B9BEC4;padding:44px 0 26px;font-size:15px}
 .stopka-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:26px 20px}
 .st-logo{grid-column:1/-1;color:#B9BEC4}
-.st-logo svg{height:46px;width:auto;aspect-ratio:300/92;display:block}
+.st-logo svg{height:40px;width:auto;aspect-ratio:702.6/154.7;display:block}
 .st-kol{display:flex;flex-direction:column;gap:6px;min-width:0}
 .st-kol b{color:#fff}
 .st-kol a{text-decoration:none;overflow-wrap:anywhere}
@@ -212,7 +213,7 @@ p{margin:0}
 }
 @media (min-width:1000px){
   :root{--hh:78px}
-  .logo svg{height:52px}
+  .logo svg{height:36px}
   .nav,.jezyki{display:flex}
   .top-tel{margin-left:6px}
   .burger,.menu-mob{display:none!important}
@@ -362,3 +363,5 @@ p{margin:0}
 .kar-inne a:hover{background:#E4E7EA}
 .kar-inne a[aria-current]{background:var(--gr);color:#fff}
 .kar-foto img{border:1px solid var(--linia)}
+@media (min-width:1200px){.logo svg{height:42px}}
+@media (min-width:1000px) and (max-width:1199px){.nav a{padding:8px 8px}.nav a::after{left:6px;right:6px}.top-in{gap:12px}}

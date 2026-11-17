@@ -12,7 +12,7 @@ BADGE_CSS = open(os.path.join(ROOT, '_src', 'badge_style.css'), encoding='utf-8'
 T = {}
 T['pl'] = dict(
   lang='pl', p='', title='K-Tech Żory - obróbka CNC, hydraulika siłowa, kostki STECKO, uszczelnienia',
-  desc='Obróbka skrawaniem CNC w Żorach: kostki i przyłącza STECKO, tłoki, dławice, uszczelnienia techniczne, części obudów zmechanizowanych, konstrukcje spawane. Wycena z rysunku.',
+  desc='Obróbka skrawaniem CNC w Żorach: kostki i przyłącza STECKO, tłoki, dławice, produkcja uszczelnień technicznych, części obudów zmechanizowanych, konstrukcje spawane. Wycena z rysunku.',
   skip='Przejdź do treści', home='K-Tech - strona główna', firmaword='Przedsiębiorstwo Wielobranżowe',
   m_oferta='Oferta', m_usz='Uszczelnienia', usz_link='Modele i tabele wymiarów', m_maszyny='Maszyny', m_wyroby='Wyroby', m_wycena='Wycena', m_kontakt='Kontakt',
   menu_open='Otwórz menu', call='Zadzwoń',
@@ -49,7 +49,8 @@ T['pl'] = dict(
   f_demo='To podgląd strony, formularz niczego jeszcze nie wysyła. Zapytania prosimy kierować na biuro@k-tech.net.pl.',
   ko_h='Kontakt i dojazd', ko_firma='Przedsiębiorstwo Wielobranżowe K-TECH Krzysztof Fojcik',
   ko_kom='kom.', ko_tel='tel.', ko_fax='fax', ko_map='Mapa dojazdu do K-Tech, ul. Boczna 8, Żory',
-  ko_about='Zajmujemy się obróbką skrawaniem na obrabiarkach CNC i uniwersalnych, produkcją elementów hydrauliki siłowej i sterowniczej, produkcją i remontem części obudów zmechanizowanych oraz ślusarstwem i spawalnictwem.',
+  ko_zakres_h='Zakres działalności',
+  ko_zakres=['Obróbka skrawaniem na obrabiarkach CNC i uniwersalnych', 'Produkcja elementów hydrauliki siłowej i sterowniczej', 'Produkcja uszczelnień technicznych', 'Produkcja i remont części obudów zmechanizowanych', 'Ślusarstwo i spawalnictwo'],
   ft_note='Zdjęcia obróbki na górze strony i w parku maszynowym są przykładowe, do zamiany na zdjęcia z zakładu w Żorach. Wyroby: rendery K-Tech.',
   ck_t='Mapa dojazdu korzysta z Google Maps, które może zapisywać pliki cookies.', ck_ok='Akceptuję', ck_no='Tylko niezbędne',
   bar_call='Zadzwoń', bar_cta='Wyślij rysunek',
@@ -94,7 +95,8 @@ T['en'] = dict(T['pl'],
   f_demo='This is a website preview, the form does not send anything yet. Please write to biuro@k-tech.net.pl.',
   ko_h='Contact and directions', ko_firma='Przedsiębiorstwo Wielobranżowe K-TECH Krzysztof Fojcik',
   ko_kom='mobile', ko_tel='phone', ko_fax='fax', ko_map='Map to K-Tech, ul. Boczna 8, Żory, Poland',
-  ko_about='We machine parts on CNC and manual machine tools, produce power and control hydraulics components, manufacture and repair parts of powered roof supports, and offer metalwork and welding.',
+  ko_zakres_h='Scope of work',
+  ko_zakres=['Machining on CNC and manual machine tools', 'Power and control hydraulics components', 'Production of technical seals', 'Production and repair of powered roof support parts', 'Metalwork and welding'],
   ft_note='Machining photos at the top and in the machine park are placeholders, to be replaced with photos from the Żory plant. Products: K-Tech renders.',
   ck_t='The map uses Google Maps, which may store cookies.', ck_ok='Accept', ck_no='Essential only',
   bar_call='Call', bar_cta='Send drawing', prev='Previous', next='Next',
@@ -138,7 +140,8 @@ T['de'] = dict(T['pl'],
   f_demo='Dies ist eine Vorschau, das Formular sendet noch nichts. Bitte schreiben Sie an biuro@k-tech.net.pl.',
   ko_h='Kontakt und Anfahrt', ko_firma='Przedsiębiorstwo Wielobranżowe K-TECH Krzysztof Fojcik',
   ko_kom='Mobil', ko_tel='Tel.', ko_fax='Fax', ko_map='Karte zu K-Tech, ul. Boczna 8, Żory, Polen',
-  ko_about='Wir bearbeiten Teile auf CNC- und Universalmaschinen, fertigen Komponenten der Leistungs- und Steuerhydraulik, produzieren und reparieren Teile für Schreitausbau und bieten Schlosser- und Schweißarbeiten.',
+  ko_zakres_h='Leistungsumfang',
+  ko_zakres=['Zerspanung auf CNC- und Universalmaschinen', 'Komponenten der Leistungs- und Steuerhydraulik', 'Herstellung technischer Dichtungen', 'Fertigung und Reparatur von Teilen für Schreitausbau', 'Schlosser- und Schweißarbeiten'],
   ft_note='Die Bearbeitungsfotos oben und im Maschinenpark sind Platzhalter und werden durch Fotos aus dem Werk in Żory ersetzt. Produkte: K-Tech-Renderings.',
   ck_t='Die Karte nutzt Google Maps, das Cookies speichern kann.', ck_ok='Akzeptieren', ck_no='Nur notwendige',
   bar_call='Anrufen', bar_cta='Zeichnung senden', prev='Zurück', next='Weiter',
@@ -202,9 +205,13 @@ def katalog(t):
         out.append(f'<figure class="kat-el"><img src="{t["p"]}img/r/{row[0]}.webp" alt="{esc(name)}" loading="lazy" decoding="async" width="638" height="415" draggable="false"><figcaption><b>{esc(name)}</b>{o}</figcaption></figure>')
     return '\n'.join(out)
 
+def zakres(t):
+    return '\n'.join(f'        <li>{esc(x)}</li>' for x in t['ko_zakres'])
+
 def build(code):
     t = T[code]
     s = TPL
+    s = s.replace('[[ZAKRES]]', zakres(t))
     s = s.replace('[[CARDS]]', cards(t)).replace('[[KATALOG]]', katalog(t))
     s = s.replace('[[HERO_SVG]]', HERO_SVG)
     s = s.replace('[[BADGE]]', BADGE).replace('[[BADGE_CSS]]', BADGE_CSS)
