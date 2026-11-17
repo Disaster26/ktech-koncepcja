@@ -75,7 +75,16 @@ def dzial():
 def num(v):
     return re.sub(r'^\(.*?\)', '', v)
 
+def tabela_grupy(k):
+    rows = []
+    for z, hs in k['grupy']:
+        for j, (h, L) in enumerate(hs):
+            zak = f'<th scope="rowgroup" rowspan="{len(hs)}" class="tab-zak">{esc(z)} mm</th>' if j == 0 else ''
+            rows.append(f'<tr>{zak}<td>{esc(h)}</td><td class="zab">{esc(L)}</td></tr>')
+    return '<table id="tab-wym" class="tab-wym tab-pp">\n        <thead>\n          <tr><th scope="col" class="tab-ozn"><b>d1</b><span>zakres średnicy</span></th><th scope="col"><b>h</b><span>szerokość pierścienia</span></th><th scope="col" class="zab"><b>L</b><span>szerokość gniazda</span></th></tr>\n        </thead>\n        <tbody>\n          ' + '\n'.join(rows) + '\n        </tbody>\n      </table>'
+
 def tabela(k):
+    if k.get('grupy'): return tabela_grupy(k)
     kol = k['kol']; usz = k['usz']; iD3 = [s for s, _ in kol].index('D3')
     rows = []
     for c in k['rows']:
@@ -103,6 +112,11 @@ def karta(k):
     uw = ''.join(f'\n        <p class="kar-uwaga">{esc(u)}</p>' for u in k['uwagi'])
     inne = ' '.join(f'<a href="../{x["slug"]}/"' + (' aria-current="page"' if x is k else '') + f'>{esc(x["sym"])}</a>' for x in KARTY)
     ph = num(k['rows'][len(k['rows']) // 2][0])
+    filtr = '' if k.get('grupy') else f'''      <div class="filtr">
+        <label for="filtr-d">Szukaj po średnicy (mm)</label>
+        <div class="filtr-pole"><input id="filtr-d" type="text" inputmode="decimal" autocomplete="off" placeholder="np. {esc(ph)}"><button type="button" id="filtr-x" hidden aria-label="Wyczyść">Wyczyść</button></div>
+        <p id="filtr-info" class="filtr-info" aria-live="polite">{n} rozmiarów w typoszeregu</p>
+      </div>'''
     return f'''
 <section class="sekcja pod-glowa">
   <div class="wrap">
@@ -147,18 +161,14 @@ def karta(k):
         <h2>Typoszereg {esc(sym)}</h2>
         <p class="kar-tol">Tolerancje gniazda: {esc(k['tol'])}.</p>{uw}
       </div>
-      <div class="filtr">
-        <label for="filtr-d">Szukaj po średnicy (mm)</label>
-        <div class="filtr-pole"><input id="filtr-d" type="text" inputmode="decimal" autocomplete="off" placeholder="np. {esc(ph)}"><button type="button" id="filtr-x" hidden aria-label="Wyczyść">Wyczyść</button></div>
-        <p id="filtr-info" class="filtr-info" aria-live="polite">{n} rozmiarów w typoszeregu</p>
-      </div>
+{filtr}
     </div>
-    <p class="tab-hint">Tabelę można przesuwać w bok. Kolumna z oznaczeniem zostaje na miejscu.</p>
+    {'' if k.get('grupy') else '<p class="tab-hint">Tabelę można przesuwać w bok. Kolumna z oznaczeniem zostaje na miejscu.</p>'}
     <div class="tab-ramka" tabindex="0" role="region" aria-label="Tabela wymiarów {esc(sym)}, przewijana w poziomie">
       {tabela(k)}
     </div>
     <p id="filtr-brak" class="filtr-brak" hidden>Tego rozmiaru nie ma w typoszeregu. <a href="../../#wycena">Prosimy o zapytanie z wymiarami gniazda.</a></p>
-    <p class="tab-przyp">Wymiary w mm według karty katalogowej {esc(k['nr'])}, wartości w nawiasach jak w karcie. Typoszereg zostanie uzupełniony o kolejne rozmiary.</p>
+    <p class="tab-przyp">Wymiary w mm według karty katalogowej {esc(k['nr'])}, {'' if k.get('grupy') else 'wartości w nawiasach jak w karcie. '}Typoszereg zostanie uzupełniony o kolejne rozmiary.</p>
     <nav class="kar-inne" aria-label="Inne modele"><span>Inne karty:</span> {inne}</nav>
   </div>
 </section>

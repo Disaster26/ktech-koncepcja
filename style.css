@@ -370,3 +370,8 @@ p{margin:0}
 @media (min-width:1000px) and (max-width:1199px){.nav{gap:0}.nav a{padding:8px 7px;font-size:15px}.nav a::after{left:5px;right:5px}.top-in{gap:10px}.jezyki a{padding:7px 5px}}
 .nav a{white-space:nowrap}
 .mod .prof{max-width:320px}
+.tab-wym.tab-pp{min-width:0}
+.tab-pp .tab-ozn,.tab-pp tbody th{position:static;box-shadow:none}
+.tab-pp tbody th.tab-zak{vertical-align:top;border-right:1px solid #E1E4E8;border-bottom:1px solid #C3C8CE;white-space:normal}
+.tab-pp tbody tr:hover th{background:#fff}
+.kar-tab .tab-ramka:has(.tab-pp){max-width:720px}
