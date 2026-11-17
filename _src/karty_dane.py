@@ -1,5 +1,6 @@
 # Dane przepisane z kart katalogowych K-Tech (maile 14.11.2026, 10:26).
 # 17.11.2026 20:14: aktualne karty DS, DSn, DZ, PO (DSn: 251,2 i 252,5 zostają na życzenie klienta).
+# 17.11.2026 22:10: aktualne karty PP (nowa), JS, JSn - wartości 1:1 z kart, także podejrzane (JS 140x155 D3=190, JS 290x310 D3=285, JSn 190x205 D3=195).
 # Tabele przepisane z renderów kart (300 dpi), bez zmian wartości.
 
 MEDIUM = 'oleje mineralne; emulsje olejowo-wodne HFA, HFB, HFC; wodny roztwór glikolu etylowego, np. Polikon Test'
@@ -141,6 +142,20 @@ dict(slug='po', sym='PO', typ='Pierścień oporowy', nr='KT-PO01', kol=K_TLOK, u
 320 290 5 318,5 290 320 32 1 0,2
 321,2 290 5 318,5 290 321,2 32 1 0,2''')),
 
+dict(slug='pp', sym='PP', typ='Pierścień prowadzący', nr='KT-PP', kol=[('d1', 'zakres średnicy'), ('h', 'szerokość pierścienia'), ('L', 'szerokość gniazda')], usz=2,
+  opis='Pierścień prowadzący PP stosowany jest dla średnich obciążeń w siłownikach hydraulicznych pracujących w ruchu posuwisto-zwrotnym. Pierścień PP uniemożliwia styk metalu z metalem.',
+  param=[('Temperatura pracy', '-40 ÷ +110 °C'), ('Wytrzymałość na ściskanie', '50 N/mm² dla POM, 80 N/mm² dla POM+GS'), ('Prędkość ruchu', 'do 0,8 m/s')],
+  konstr=[('Materiał', 'POM lub POM+GS'),
+          ('Cechy', 'wysoka odporność na ścieranie; dobre właściwości przy pracy bez smarowania; duża wytrzymałość na ściskanie')],
+  tol='ØD3 H10, ØD2 h10, ØD1 -0,2, L +0,1, R 0,2, r 0,2',
+  uwagi=['Grubość pierścienia od 2 do 5 mm, przykładowe grubości: 2,5; 2,7; 3,1; 3,75; 4,4; 5 mm.', 'Pozostałe wymiary na zapytanie.'],
+  wzor='d1 x d2 x h', przyklad='PP 230 x 235 x 25',
+  grupy=[('od 20 do 60', [('5', '5,2'), ('5,6', '5,8'), ('7,5', '7,7'), ('9,7', '9,9'), ('10', '10,2')]),
+         ('od 60 do 200', [('10', '10,2'), ('15', '15,2'), ('17,5', '17,7'), ('20', '20,2'), ('22,5', '22,7'), ('25', '25,2')]),
+         ('od 200 do 320', [('10', '10,2'), ('15', '15,2'), ('20', '20,2'), ('25', '25,2'), ('30', '30,2')]),
+         ('od 320 do 400', [('15', '15,2'), ('20', '20,2'), ('25', '25,2'), ('30', '30,2')])],
+  rows=[]),
+
 dict(slug='js', sym='JS', typ='Uszczelnienie tłoczyska', nr='KT-JS-2', kol=K_TLOCZ, usz=3,
   opis='Element uszczelniający jednokomponentowy, jednostronnego działania. Wysokociśnieniowa uszczelka wykonana z materiałów termoplastycznych. Stosowana głównie w siłownikach górniczych, a typoszereg standardowy także w hydraulice innych gałęzi przemysłu.',
   param=[('Ciśnienie', '500 bar / 50 MPa'), ('Temperatura pracy', '-30 ÷ +90 °C'), ('Prędkość ruchu', 'do 0,5 m/s'), ('Medium', MEDIUM)],
@@ -159,40 +174,53 @@ dict(slug='js', sym='JS', typ='Uszczelnienie tłoczyska', nr='KT-JS-2', kol=K_TL
 78,8 100 14 80 100 78,8 14,8 0,5 0,2
 80 90 8 81,5 90 80 9 0,5 0,2
 80 100 14 81,5 100 80 14,8 0,5 0,2
-97,5 115 11 98,8 115 100 11,8 0,5 0,2
+97,5 115 11 98,8 115 97,5 11,8 0,5 0,2
 98,8 115 11 100 115 98,8 11,8 0,5 0,2
 100 115 11 101,5 115 100 11,8 0,5 0,2
-115 130 14,5 116,5 130 115 16 0,5 0,2''')),
+115 130 15 116,5 130 115 16 0,5 0,2
+140 155 15 141,5 155 190 16 0,5 0,2
+190 210 15 191,5 210 190 16,4 0,8 0,2
+190 220 22 191,5 220 190 23 0,8 0,2
+200 220 14,5 201,5 220 200 16 0,8 0,2
+200 220 15 201,5 220 200 16,5 0,8 0,2
+210 230 14,5 211,5 230 210 16 0,8 0,2
+220 240 14,5 221,5 240 220 16 0,8 0,2
+230 250 14,5 231,5 250 230 16 0,8 0,2
+240 260 14,5 241,5 260 240 16 0,8 0,2
+240 260 15 241,5 260 240 16,5 0,8 0,2
+285 305 14,5 286,5 305 285 16 0,8 0,2
+285 305 16,4 286,5 305 285 18 0,8 0,2
+285 310 18 286,5 310 285 20 0,8 0,2
+290 310 16,4 291,5 310 285 18 0,8 0,2
+305 325 16,4 306,5 325 305 18 0,8 0,2''')),
 
 dict(slug='jsn', sym='JSn', typ='Uszczelnienie tłoczyska', nr='KT-JS01', kol=K_TLOCZ, usz=3,
   opis='Element uszczelniający wielokomponentowy, jednostronnego działania. Wysokociśnieniowa uszczelka wykonana z materiałów termoplastycznych, z wypełniaczem zacisku wstępnego o przekroju kołowym. Stosowana głównie w siłownikach górniczych, a typoszereg standardowy także w hydraulice innych gałęzi przemysłu.',
-  param=[('Ciśnienie', '500 bar / 50 MPa'), ('Temperatura pracy', '-30 ÷ +90 °C'), ('Prędkość ruchu', 'do 0,5 m/s'), ('Medium', MEDIUM)],
+  param=[('Ciśnienie', '630 bar / 63 MPa'), ('Temperatura pracy', '-30 ÷ +90 °C'), ('Prędkość ruchu', 'do 0,5 m/s'), ('Medium', MEDIUM)],
   konstr=[('Materiał', 'TPU 88 ÷ 90 Shore A'), ('Pierścień przeciwwyciskowy', 'POM'), ('Wypełniacz', 'NBR70'),
           ('Cechy', 'wysoka odporność na ścieranie; poliacetalowy pierścień zabezpieczający przed wyciskaniem; wypełniacz zacisku wstępnego')],
   tol='ØD2 H10, ØD1 +0,2, ØD3 h10, L +0,5, R 0,5, r 0,5',
   uwagi=['Pozostałe wymiary na zapytanie.'],
   wzor='d1 x d2 x h', przyklad='JSn 200 x 220 x 14,5',
   rows=T('''
-38,8 55 11 40 55 38,8 11,8 0,5 0,2
-40 50 11 41,5 50 40 11,8 0,5 0,2
-40 55 11 41,5 55 40 11,8 0,5 0,2
-40 60 8 41,5 59,6 40 9 0,5 0,2
-61,8 78 11 63 78 61,8 11,8 0,5 0,2
-63 78 11 64,5 78 63 11,8 0,5 0,2
-78,8 100 14 80 100 78,8 14,8 0,5 0,2
+40 52 8,6 41,5 52 40 9,6 0,5 0,2
+60 72 8,6 61,5 72 60 9,6 0,5 0,2
+63 75 8,6 64,5 75 63 9,6 0,5 0,2
+70 85 14,5 71,5 85 70 16 0,5 0,2
 80 100 14 81,5 100 80 14,8 0,5 0,2
-97,5 115 11 98,8 115 97,5 11,8 0,5 0,2
-98,8 115 11 100 115 98,8 11,8 0,5 0,2
-100 115 11 101,5 115 100 11,8 0,5 0,2
-115 135 13,6 116,5 135 115 14,5 0,5 0,2
+80 95 14,5 81,5 95 80 15,5 0,5 0,2
+90 110 14,5 91,5 110 90 15,5 0,5 0,2
+100 115 15 101,5 115 100 16 0,5 0,2
+120 135 15 121,5 135 120 16 0,5 0,2
+160 175 14,5 161,5 175 160 16 0,8 0,2
 160 180 14,5 161,5 180 160 16 0,8 0,2
 180 195 14,5 181,5 195 180 16 0,8 0,2
-190 220 22 191,5 220 190 22,8 0,8 0,2
-190 222 22 191,5 222 190 22,8 0,8 0,2
-195 210 22 196,5 210 195 22,8 0,8 0,2
+180 200 14,5 181,5 200 180 16 0,8 0,2
+190 205 14,5 191,5 205 195 16 0,8 0,2
 197,5 220 14,5 199 220 197,5 16 0,8 0,2
-198,8 220 14,5 220,3 220 198,8 16 0,8 0,2
-200 220 14,5 221,5 220 200 16 0,8 0,2
+198,8 220 14,5 200,3 220 198,8 16 0,8 0,2
+200 220 14,5 201,5 220 200 16 0,8 0,2
+210 230 14,5 211,5 230 210 16 1 0,2
 220 240 14,5 221,5 240 220 16 1 0,2
 230 250 14,5 231,5 250 230 16 1 0,2
 237,5 260 14,5 239 260 237,5 16 1 0,2
@@ -207,9 +235,9 @@ dict(slug='jsn', sym='JSn', typ='Uszczelnienie tłoczyska', nr='KT-JS01', kol=K_
 285 305 14,5 286,5 305 285 16 1 0,2
 285 310 16,4 286,5 310 285 18 1 0,2
 290 310 16,4 291,5 310 290 18 1 0,2
-303,8 325 16,4 306,5 325 303,8 18 1 0,2
-302,5 325 16,4 306,5 325 302,5 18 1 0,2
-305 325 16,4 306,5 325 305 18 1 0,2''')),
+305 325 16,4 306,5 325 305 18 1 0,2
+350 375 18 351,5 375 350 20 1 0,2
+370 395 18 371,5 395 370 20 1 0,2''')),
 
 dict(slug='pz', sym='PZ', typ='Pierścień zgarniający', nr='KT-PZ01', kol=K_PZ, usz=4,
   opis='Pierścienie zgarniające PZ stosowane są w siłownikach hydraulicznych pracujących w ruchu posuwisto-zwrotnym. Ich zadaniem jest usuwanie nagromadzonych na tłoczysku zanieczyszczeń, takich jak błoto czy lód.',
@@ -242,18 +270,22 @@ dict(slug='pz', sym='PZ', typ='Pierścień zgarniający', nr='KT-PZ01', kol=K_PZ
 305 325 18 12 306,5 325 305 12,2 0,5 0,2''')),
 ]
 
+for _k in KARTY:
+    if _k.get('grupy'):
+        _k['rows'] = [[z, h, L] for z, hs in _k['grupy'] for h, L in hs]
+
 # Spis podstawowych profili (strona 1 katalogu): (symbol, typ, materiał, slug karty lub None, profil)
 SPIS = [
   ('DS', 'Uszczelnienie tłoka', 'TPU/POM', 'ds', 'ds'),
   ('DSn', 'Uszczelnienie tłoka', 'TPU/POM', 'dsn', 'dsn'),
   ('DZ', 'Uszczelnienie tłoka', 'TPU/POM', 'dz', 'dz'),
   ('PO', 'Pierścień oporowy', 'POM', 'po', 'po'),
-  ('PP', 'Pierścień prowadzący tłokowy', 'POM', None, 'pp'),
+  ('PP', 'Pierścień prowadzący tłokowy', 'POM', 'pp', 'pp'),
   ('PPT', 'Pierścień prowadzący', 'POLYESTER', None, 'ppt'),
   ('JSn', 'Uszczelnienie tłoczyska', 'TPU/NBR/POM', 'jsn', 'jsn'),
   ('JS', 'Uszczelnienie tłoczyska', 'TPU/POM', 'js', 'js'),
   ('PZ', 'Pierścień zgarniający', 'TPU', 'pz', 'pz'),
-  ('PP', 'Pierścień prowadzący tłoczyskowy', 'POM', None, 'ppx'),
+  ('PP', 'Pierścień prowadzący tłoczyskowy', 'POM', 'pp', 'ppx'),
   ('PW', 'Pierścień prowadzący tłoczyskowy, profilowy', 'POM', None, 'pw'),
   ('PE', 'Pierścień podporowy', 'POM / PTFE', None, 'pe'),
   ('O', 'O-ring', 'NBR', None, 'o'),
