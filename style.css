@@ -282,7 +282,7 @@ p{margin:0}
 .mod-txt b{font:700 1.6rem/1.1 "Barlow SC",sans-serif}
 .mod-txt span{color:var(--mut);font-size:.98rem}
 .mod-txt em{font-style:normal;font-weight:600;margin-top:6px;align-self:flex-start;border-bottom:3px solid var(--or)}
-.mod-txt .mod-wkrotce{border:0;color:#8A9098;font-weight:400;font-size:.92rem}
+.mod-txt .mod-wkrotce{border:0;color:#686E76;font-weight:400;font-size:.92rem}
 .mod-gotowy a:hover b{color:#C77400}
 .mod-gotowy a:hover em{border-color:var(--gr)}
 .mod-nota{margin-top:32px;font-size:15px;color:var(--mut);border-left:4px solid var(--st);padding-left:14px;max-width:70ch}
